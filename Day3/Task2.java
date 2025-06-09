@@ -21,7 +21,7 @@ public class Task2 {
 	public static void main(String[] args) {
 		Task2 t=new Task2();
 		t.salary("Full-time", 50000);
-		t.salary("Part-time", 50000, 5);
+		t.salary("Part-time", 50000, 6);
 		t.salary("Freelancer", 7, 1000);
 	}
 
