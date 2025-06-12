@@ -3,7 +3,7 @@ package Day6;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Task2 {
+public class Task3 {
 
 	public static void main(String[] args) {
 		HashMap<String, Integer> studm=new HashMap();
