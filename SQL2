@@ -1,5 +1,5 @@
-1.Name starts with a in the emp table
-
+LIKE operators
+1.Name starts with a 
 mysql> select empname from emp where empname like 'a%';
 +---------+
 | empname |
@@ -7,8 +7,7 @@ mysql> select empname from emp where empname like 'a%';
 | anna    |
 +---------+
 
-2.Name ends with a in the emp table
-
+2.Name ends with a 
 mysql> select empname from emp where empname like '%a';
 +---------+
 | empname |
@@ -18,7 +17,6 @@ mysql> select empname from emp where empname like '%a';
 +---------+
 
 3.Name starts with g and ends e having 6 characters
-
 mysql> select empname from emp where empname like 'g____e';
 +---------+
 | empname |
@@ -26,4 +24,88 @@ mysql> select empname from emp where empname like 'g____e';
 | george  |
 +---------+
 
-4.
+4.OR operator
+mysql> select * from emp2 where dept='hr' or sal>3500;
++------+-------------+------+---------+------------+
+| sno  | empname     | sal  | dept    | jidate     |
++------+-------------+------+---------+------------+
+|    5 | rakshana    | 3500 | hr      | 1984-07-13 |
+|    6 | reshma      | 1800 | hr      | 1985-08-14 |
+|    7 | nithyashree | 5000 | analyst | 1986-01-01 |
+|    8 | subashini   | 6050 | analyst | 1981-11-19 |
+|   10 | devishree   | 8000 | staff   | 1984-03-13 |
++------+-------------+------+---------+------------+
+
+5.AND operator
+mysql> select * from emp2 where dept='hr' and sal=3500;
++------+----------+------+------+------------+
+| sno  | empname  | sal  | dept | jidate     |
++------+----------+------+------+------------+
+|    5 | rakshana | 3500 | hr   | 1984-07-13 |
++------+----------+------+------+------------+
+
+6.IN operator
+mysql> select * from emp2 where dept in('staff','developer');
++------+-----------+------+-----------+------------+
+| sno  | empname   | sal  | dept      | jidate     |
++------+-----------+------+-----------+------------+
+|    1 | elsa      | 2300 | developer | 1981-12-03 |
+|    2 | anna      | 2500 | developer | 1987-01-01 |
+|    9 | poomozhi  | 3000 | staff     | 1983-02-20 |
+|   10 | devishree | 8000 | staff     | 1984-03-13 |
++------+-----------+------+-----------+------------+
+
+7.NOT IN operator
+mysql> select * from emp2 where sno not in(1,3,5,7,9);
++------+-----------+------+-----------+------------+
+| sno  | empname   | sal  | dept      | jidate     |
++------+-----------+------+-----------+------------+
+|    2 | anna      | 2500 | developer | 1987-01-01 |
+|    4 | josh      | 3050 | tester    | 1983-06-20 |
+|    6 | reshma    | 1800 | hr        | 1985-08-14 |
+|    8 | subashini | 6050 | analyst   | 1981-11-19 |
+|   10 | devishree | 8000 | staff     | 1984-03-13 |
++------+-----------+------+-----------+------------+
+
+MULTI-ROW FUNCTIONS
+8.MAX()
+mysql> select max(sal)
+    -> from emp2
+    -> ;
++----------+
+| max(sal) |
++----------+
+|     8000 |
++----------+
+
+9.MIN();
+mysql> select min(jidate) from emp2;
++-------------+
+| min(jidate) |
++-------------+
+| 1981-11-19  |
++-------------+
+
+10.AVG();
+mysql> select avg(sal) from emp2;
++-----------+
+| avg(sal)  |
++-----------+
+| 3695.0000 |
++-----------+
+
+11.SUM();
+mysql> select sum(sno) from emp2;
++----------+
+| sum(sno) |
++----------+
+|       55 |
++----------+
+
+12.COUNT();
+mysql> select count(empname) from emp2;
++----------------+
+| count(empname) |
++----------------+
+|             10 |
++----------------+
