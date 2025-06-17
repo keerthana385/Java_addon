@@ -1,0 +1,63 @@
+mysql> create database studetail;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> use studetail;
+Database changed
+mysql> create table student(sno int, stname varchar(25),stcourse varchar(25),marks int,books varchar(25), fees int);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into student(sno,stname,stcourse,marks,books,fees)values
+    -> (1,'keerthana','computer technology',90,'linux fundamentals',35000),
+    -> (2,'nithyashree','computer technology',91,'finanacial accounts',37000),
+    -> (3,'kiruthika','computer science',85,'maths for computer',40000),
+    -> (4,'devishree','computer science',79,'maya designing',40000),
+    -> (5,'poomozhi','information technoloy',77,'stack development',50000),
+    -> (6,'mithunasri','information technoloy',80,'stack development',55000);
+Query OK, 6 rows affected (0.03 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++------+-------------+-----------------------+-------+---------------------+-------+
+| sno  | stname      | stcourse              | marks | books               | fees  |
++------+-------------+-----------------------+-------+---------------------+-------+
+|    1 | keerthana   | computer technology   |    90 | linux fundamentals  | 35000 |
+|    2 | nithyashree | computer technology   |    91 | finanacial accounts | 37000 |
+|    3 | kiruthika   | computer science      |    85 | maths for computer  | 40000 |
+|    4 | devishree   | computer science      |    79 | maya designing      | 40000 |
+|    5 | poomozhi    | information technoloy |    77 | stack development   | 50000 |
+|    6 | mithunasri  | information technoloy |    80 | stack development   | 55000 |
++------+-------------+-----------------------+-------+---------------------+-------+
+6 rows in set (0.00 sec)
+
+mysql> select * from student where marks>80;
++------+-------------+---------------------+-------+---------------------+-------+
+| sno  | stname      | stcourse            | marks | books               | fees  |
++------+-------------+---------------------+-------+---------------------+-------+
+|    1 | keerthana   | computer technology |    90 | linux fundamentals  | 35000 |
+|    2 | nithyashree | computer technology |    91 | finanacial accounts | 37000 |
+|    3 | kiruthika   | computer science    |    85 | maths for computer  | 40000 |
++------+-------------+---------------------+-------+---------------------+-------+
+
+mysql> select stcourse, fees
+    -> from student
+    -> order by fees asc;
++-----------------------+-------+
+| stcourse              | fees  |
++-----------------------+-------+
+| computer technology   | 35000 |
+| computer technology   | 37000 |
+| computer science      | 40000 |
+| computer science      | 40000 |
+| information technoloy | 50000 |
+| information technoloy | 55000 |
++-----------------------+-------+
+
+mysql> select books
+    -> from student
+    -> where books like 'm%';
++--------------------+
+| books              |
++--------------------+
+| maths for computer |
+| maya designing     |
++--------------------+
