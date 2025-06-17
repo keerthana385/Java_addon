@@ -1,0 +1,29 @@
+1.Name starts with a in the emp table
+
+mysql> select empname from emp where empname like 'a%';
++---------+
+| empname |
++---------+
+| anna    |
++---------+
+
+2.Name ends with a in the emp table
+
+mysql> select empname from emp where empname like '%a';
++---------+
+| empname |
++---------+
+| elsa    |
+| anna    |
++---------+
+
+3.Name starts with g and ends e having 6 characters
+
+mysql> select empname from emp where empname like 'g____e';
++---------+
+| empname |
++---------+
+| george  |
++---------+
+
+4.
