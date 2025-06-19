@@ -1,3 +1,4 @@
+TASK1
 mysql> select * from stu1;
 +------+-----------+
 | sno  | sname     |
@@ -32,3 +33,13 @@ mysql> select * from stu1
 |    5 | Dharshini |    5 |    87 |
 +------+-----------+------+-------+
 
+TASK2
+mysql> select sname
+    -> from stu1
+    -> where sno=(select min(sno)
+    -> from mark1);
++----------+
+| sname    |
++----------+
+| Rakshana |
++----------+
